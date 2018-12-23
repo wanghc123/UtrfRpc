@@ -5,8 +5,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
- * RPC Encoder
- * @author huangyong
+ * @Description:
+ * @author: wanghongchun
+ * @date: 2018/12/21
  */
 public class RpcEncoder extends MessageToByteEncoder {
 

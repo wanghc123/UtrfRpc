@@ -1,8 +1,9 @@
 package com.wanghongchun.rpc.protocol;
 
 /**
- * RPC Response
- * @author huangyong
+ * @Description:
+ * @author: wanghongchun
+ * @date: 2018/12/21
  */
 public class RpcResponse {
     private String requestId;

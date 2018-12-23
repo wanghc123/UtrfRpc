@@ -7,8 +7,9 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import java.util.List;
 
 /**
- * RPC Decoder
- * @author huangyong
+ * @Description:
+ * @author: wanghongchun
+ * @date: 2018/12/21
  */
 public class RpcDecoder extends ByteToMessageDecoder {
 
@@ -25,9 +26,6 @@ public class RpcDecoder extends ByteToMessageDecoder {
         }
         in.markReaderIndex();
         int dataLength = in.readInt();
-        /*if (dataLength <= 0) {
-            ctx.close();
-        }*/
         if (in.readableBytes() < dataLength) {
             in.resetReaderIndex();
             return;
@@ -36,7 +34,6 @@ public class RpcDecoder extends ByteToMessageDecoder {
         in.readBytes(data);
 
         Object obj = SerializationUtil.deserialize(data, genericClass);
-        //Object obj = JsonUtil.deserialize(data,genericClass); // Not use this, have some bugs
         out.add(obj);
     }
 

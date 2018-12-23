@@ -11,8 +11,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Serialization Util（Based on Protostuff）
- * @author huangyong
+ * @Description:
+ * @author: wanghongchun
+ * @date: 2018/12/21
  */
 public class SerializationUtil {
 

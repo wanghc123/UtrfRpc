@@ -14,8 +14,9 @@ import org.slf4j.LoggerFactory;
 import java.util.Map;
 
 /**
- * RPC Handler（RPC request processor）
- * @author luxiaoxun
+ * @Description:
+ * @author: wanghongchun
+ * @date: 2018/12/21
  */
 public class RpcHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
