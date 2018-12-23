@@ -1,5 +1,6 @@
 package com.wanghongchun.rpc.server;
 
+import com.wanghongchun.rpc.common.NamedThreadFactory;
 import com.wanghongchun.rpc.common.RpcThreadPool;
 import com.wanghongchun.rpc.protocol.RpcDecoder;
 import com.wanghongchun.rpc.protocol.RpcEncoder;
@@ -14,6 +15,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldPrepender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -28,6 +30,7 @@ import javax.imageio.spi.ServiceRegistry;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -102,6 +105,7 @@ public class RpcServer implements ApplicationContextAware, InitializingBean {
                         public void initChannel(SocketChannel channel) throws Exception {
                             channel.pipeline()
                                     .addLast(new LengthFieldBasedFrameDecoder(65536, 0, 4, 0, 0))
+                                    .addLast(new LengthFieldPrepender(4))
                                     .addLast(new RpcDecoder(RpcRequest.class))
                                     .addLast(new RpcEncoder(RpcResponse.class))
                                     .addLast(new RpcHandler(serviceMap));
