@@ -7,7 +7,7 @@ package com.wanghongchun.rpc.protocol;
  */
 public class RpcResponse {
     private String requestId;
-    private String error;
+    private String  error;
     private Object result;
 
     public boolean isError() {
@@ -21,6 +21,7 @@ public class RpcResponse {
     public void setRequestId(String requestId) {
         this.requestId = requestId;
     }
+
 
     public String getError() {
         return error;

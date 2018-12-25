@@ -22,7 +22,7 @@ public class RpcEncoder extends MessageToByteEncoder {
         if (genericClass.isInstance(in)) {
             byte[] data = SerializationUtil.serialize(in);
             //byte[] data = JsonUtil.serialize(in); // Not use this, have some bugs
-            out.writeInt(data.length);
+            //out.writeInt(data.length);
             out.writeBytes(data);
         }
     }

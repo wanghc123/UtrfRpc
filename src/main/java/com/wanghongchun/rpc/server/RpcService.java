@@ -21,5 +21,5 @@ import java.lang.annotation.Target;
 @Component
 public @interface RpcService {
 
-    Class<?> value();
+    String value();
 }
